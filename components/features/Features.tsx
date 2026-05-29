@@ -1,8 +1,32 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Rocket, Sparkles, Globe, Shield, Zap, Star } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 interface Feature {
   icon: LucideIcon;
@@ -56,31 +80,7 @@ const features: Feature[] = [
   },
 ];
 
-const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
 
 export default function Features() {
   return (
