@@ -1,21 +1,35 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+type Star = {
+  id: number;
+  top: number;
+  left: number;
+  size: number;
+  duration: number;
+  delay: number;
+};
+
 export default function BackgroundStars() {
-  const stars = useMemo(
-    () =>
-      Array.from({ length: 80 }, (_, i) => ({
+  const [stars, setStars] = useState<Star[]>([]);
+
+  useEffect(() => {
+    const generatedStars: Star[] = Array.from(
+      { length: 80 },
+      (_, i) => ({
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
         size: Math.random() > 0.7 ? 2 : 1,
         duration: 2 + Math.random() * 5,
         delay: Math.random() * 3,
-      })),
-    []
-  );
+      })
+    );
+
+    setStars(generatedStars);
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">

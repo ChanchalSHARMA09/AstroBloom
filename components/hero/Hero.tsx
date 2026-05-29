@@ -103,9 +103,9 @@ export default function Hero() {
                   absolute
                   -bottom-1 sm:-bottom-2
                   left-0 right-0
-                  h-[3px]
+                  h-0.75
                   rounded-full
-                  bg-gradient-to-r
+                  bg-linear-to-r
                   from-purple-400
                   to-transparent
                   origin-left
@@ -117,7 +117,7 @@ export default function Hero() {
 
             <span
               className="
-                bg-gradient-to-r
+                bg-linear-to-r
                 from-purple-400
                 via-pink-400
                 to-blue-400
@@ -177,7 +177,7 @@ export default function Hero() {
               className="
                 rounded-full
 
-                bg-gradient-to-r
+                bg-linear-to-r
                 from-purple-500
                 to-pink-500
 
@@ -248,7 +248,7 @@ export default function Hero() {
               { value: "4.9★", label: "Rating" },
             ].map((item) => (
               <div key={item.label} className="text-center lg:text-left">
-                <div className="text-lg sm:text-xl font-bold text-white font-[family-name:var(--font-space)]">
+                <div className="text-lg sm:text-xl font-bold text-white font-(family-name:--font-space)">
                   {item.value}
                 </div>
                 <div className="text-xs text-slate-500 mt-0.5">

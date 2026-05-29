@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Rocket, Sparkles, Globe, Shield, Zap, Star } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
+import type { Variants } from "framer-motion";
 interface Feature {
   icon: LucideIcon;
   title: string;
@@ -56,20 +56,29 @@ const features: Feature[] = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: {
+      staggerChildren: 0.1,
+    },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      duration: 0.6,
+    },
   },
 };
 
@@ -77,7 +86,7 @@ export default function Features() {
   return (
     <section id="features" className="relative py-20 sm:py-28 lg:py-32 px-5 sm:px-6">
       {/* Section glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-500/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-purple-500/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
@@ -93,7 +102,7 @@ export default function Features() {
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             Why{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               AstroBloom
             </span>
             ?
@@ -128,7 +137,7 @@ export default function Features() {
 
                   border border-white/8
 
-                  bg-white/[0.03]
+                  bg-white/3
 
                   backdrop-blur-xl
 
@@ -138,7 +147,7 @@ export default function Features() {
                   duration-500
 
                   hover:border-white/15
-                  hover:bg-white/[0.06]
+                  hover:bg-white/6
 
                   overflow-hidden
                 "
@@ -149,7 +158,7 @@ export default function Features() {
                     absolute -top-20 -right-20
                     w-40 h-40
                     rounded-full
-                    bg-gradient-to-br ${feature.gradient}
+                    bg-linear-to-br ${feature.gradient}
                     opacity-0
                     blur-[60px]
                     transition-opacity
@@ -166,7 +175,7 @@ export default function Features() {
                     items-center justify-center
                     w-12 h-12 sm:w-14 sm:h-14
                     rounded-xl sm:rounded-2xl
-                    bg-gradient-to-br ${feature.gradient}
+                    bg-linear-to-br ${feature.gradient}
                     shadow-lg
                     transition-transform
                     duration-300
@@ -178,7 +187,7 @@ export default function Features() {
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold font-[family-name:var(--font-space)] transition-colors group-hover:text-white">
+                <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold font-(family-name:--font-space) transition-colors group-hover:text-white">
                   {feature.title}
                 </h3>
 
@@ -191,8 +200,8 @@ export default function Features() {
                 <div
                   className={`
                     absolute bottom-0 left-0 right-0
-                    h-[2px]
-                    bg-gradient-to-r ${feature.gradient}
+                    h-0.5
+                    bg-linear-to-r ${feature.gradient}
                     opacity-0
                     transition-opacity
                     duration-500

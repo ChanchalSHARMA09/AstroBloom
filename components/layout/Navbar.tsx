@@ -89,11 +89,11 @@ export default function Navbar() {
                 hover:text-white
 
                 after:absolute
-                after:bottom-[-4px]
+                after:-bottom-1
                 after:left-0
-                after:h-[2px]
+                after:h-0.5
                 after:w-0
-                after:bg-gradient-to-r
+                after:bg-linear-to-r
                 after:from-purple-400
                 after:to-pink-400
                 after:transition-all
@@ -111,7 +111,7 @@ export default function Navbar() {
           className="
             hidden sm:block
             rounded-full
-            bg-gradient-to-r
+            bg-linear-to-r
             from-purple-500
             to-pink-500
             px-5 sm:px-6
@@ -213,7 +213,7 @@ export default function Navbar() {
                 className="
                   w-full
                   rounded-xl
-                  bg-gradient-to-r
+                  bg-linear-to-r
                   from-purple-500
                   to-pink-500
                   py-3.5

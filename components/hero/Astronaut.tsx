@@ -50,7 +50,7 @@ export default function Astronaut() {
 
           rounded-full
 
-          bg-gradient-to-r
+          bg-linear-to-r
           from-purple-500/20
           via-pink-500/15
           to-blue-500/15
@@ -105,7 +105,7 @@ export default function Astronaut() {
 
           rounded-full
 
-          bg-gradient-to-br
+          bg-linear-to-br
           from-purple-400
           via-purple-500
           to-pink-500
@@ -149,7 +149,7 @@ export default function Astronaut() {
 
           rounded-full
 
-          bg-gradient-to-br
+          bg-linear-to-br
           from-blue-300
           to-cyan-400
 
@@ -261,11 +261,11 @@ export default function Astronaut() {
           relative
           z-10
 
-          w-[280px]
-          sm:w-[360px]
-          md:w-[420px]
-          lg:w-[520px]
-          xl:w-[600px]
+          w-70
+          sm:w-90
+          md:w-105
+          lg:w-130
+          xl:w-150
 
           h-auto
 

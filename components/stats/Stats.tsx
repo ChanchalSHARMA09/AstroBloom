@@ -48,9 +48,9 @@ export default function Stats() {
 
             border border-white/8
 
-            bg-gradient-to-br
-            from-white/[0.04]
-            to-white/[0.01]
+            bg-linear-to-br
+            from-white/4
+            to-white/1
 
             backdrop-blur-xl
 
@@ -79,8 +79,8 @@ export default function Stats() {
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-px bg-white/8 hidden lg:block" />
               )}
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-[family-name:var(--font-space)]">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-(family-name:--font-space)">
+                <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   {item.value}
                 </span>
                 {item.suffix && (

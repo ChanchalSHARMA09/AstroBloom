@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/10 pt-16 pb-8">
       {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-purple-500/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Top Section */}
@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <span className="text-2xl">🚀</span>
-              <span className="text-xl font-semibold tracking-wide font-[family-name:var(--font-space)]">
+              <span className="text-xl font-semibold tracking-wide font-(family-name:--font-space)">
                 AstroBloom
               </span>
             </div>
@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-4 font-[family-name:var(--font-space)]">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-4 font-(family-name:--font-space)">
                 {title}
               </h4>
               <ul className="space-y-3">
