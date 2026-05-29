@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Rocket, Sparkles, Globe, Shield, Zap, Star } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import type { Variants } from "framer-motion";
+
 interface Feature {
   icon: LucideIcon;
   title: string;
@@ -56,7 +56,7 @@ const features: Feature[] = [
   },
 ];
 
-const containerVariants: Variants = {
+const containerVariants = {
   hidden: {
     opacity: 0,
   },
@@ -68,7 +68,7 @@ const containerVariants: Variants = {
   },
 };
 
-const cardVariants: Variants = {
+const cardVariants = {
   hidden: {
     opacity: 0,
     y: 40,
