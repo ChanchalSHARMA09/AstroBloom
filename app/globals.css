@@ -7,12 +7,14 @@
   --purple: #8b5cf6;
   --pink: #ec4899;
   --blue: #38bdf8;
+  --cyan: #22d3ee;
 
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
 
-  --glass: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -30,27 +32,72 @@ body {
 
   background:
     radial-gradient(
-      circle at top,
-      rgba(139, 92, 246, 0.25),
+      ellipse at 20% 0%,
+      rgba(139, 92, 246, 0.2),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 0%,
+      rgba(236, 72, 153, 0.12),
       transparent 40%
     ),
     radial-gradient(
-      circle at right,
-      rgba(236, 72, 153, 0.15),
-      transparent 30%
+      ellipse at 50% 100%,
+      rgba(56, 189, 248, 0.08),
+      transparent 40%
     ),
     var(--bg-primary);
 
   color: var(--text-primary);
-
   font-family: var(--font-inter);
+  overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-space);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: #fff;
+}
+
+/* Glow keyframes for reuse */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
 }

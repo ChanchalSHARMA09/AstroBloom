@@ -1,29 +1,41 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 
-const stars = Array.from({ length: 50 }, () => ({
-  top: Math.random() * 100,
-  left: Math.random() * 100,
-  duration: 2 + Math.random() * 4,
-}));
-
 export default function BackgroundStars() {
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 80 }, (_, i) => ({
+        id: i,
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        size: Math.random() > 0.7 ? 2 : 1,
+        duration: 2 + Math.random() * 5,
+        delay: Math.random() * 3,
+      })),
+    []
+  );
+
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      {stars.map((star, index) => (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {stars.map((star) => (
         <motion.div
-          key={index}
-          className="absolute h-1 w-1 rounded-full bg-white"
+          key={star.id}
+          className="absolute rounded-full bg-white"
           style={{
             top: `${star.top}%`,
             left: `${star.left}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
           }}
           animate={{
-            opacity: [0.2, 1, 0.2],
+            opacity: [0.1, 0.8, 0.1],
+            scale: [1, star.size > 1 ? 1.5 : 1.2, 1],
           }}
           transition={{
             duration: star.duration,
+            delay: star.delay,
             repeat: Infinity,
             ease: "easeInOut",
           }}
