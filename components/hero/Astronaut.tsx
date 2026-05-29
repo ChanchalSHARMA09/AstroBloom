@@ -3,16 +3,29 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+import useMousePosition from "@/hooks/useMousePosition";
+
 export default function Astronaut() {
+  const { x, y } = useMousePosition();
+
+  const moveX = (x - window.innerWidth / 2) * 0.015;
+  const moveY = (y - window.innerHeight / 2) * 0.015;
+
   return (
     <motion.div
       animate={{
         y: [0, -20, 0],
+        x: moveX,
       }}
       transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
+        y: {
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+        x: {
+          duration: 0.4,
+        },
       }}
       className="relative"
     >
@@ -34,10 +47,10 @@ export default function Astronaut() {
       <Image
         src="/astronaut.png"
         alt="AstroBloom Astronaut"
-        width={500}
-        height={500}
+        width={600}
+        height={600}
         priority
-        className="w-[320px] md:w-112.5"
+        className="w-[380px] md:w-[550px]"
       />
     </motion.div>
   );
